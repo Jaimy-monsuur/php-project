@@ -1,9 +1,9 @@
 <?php
-require __DIR__ . '/../repositories/LoginController.php';
+require __DIR__ . '/../repositories/loginRepository.php';
 
 class LoginService {
-    public function getAll() {
+    public function Login($email, $pass) {
         $repository = new LoginRepository();
-        return $repository->getAll();
+        return $repository->Login($email, $pass);
     }
 }

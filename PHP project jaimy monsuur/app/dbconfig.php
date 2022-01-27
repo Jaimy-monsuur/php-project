@@ -11,6 +11,6 @@ if (getenv('DATABASE_URL') != "") {
     $servername = "mysql";
     $username = "root";
     $password = "secret123";
-    $database = "developmentdb";
+    $database = "Cheeseshop";
 }
 ?>

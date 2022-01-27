@@ -1,0 +1,31 @@
+html {
+    position: relative;
+    min-height: 100%;
+  }
+body {background-image: url('http://localhost:81//Resources/img/back.png');
+      background-repeat: repeat;
+      margin-bottom: 60px; /* footer height */
+      min-height: 100%;
+}
+.footer {
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    position: absolute;
+}
+.bgimg {
+    background-image: url('http://localhost:81//Resources/img/BigCheeseHomepageIMG.jpg');
+}
+.navbar-collapse 
+{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+
+
