@@ -11,7 +11,11 @@ include __DIR__ . '/../header.php';
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>
-
+<div class="container align-items-">
+    <div class="col-md-12 text-center">
+        <a class="btn btn-warning" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Warning</a>
+    </div>
+</div>
 </html>
 <?php
 include __DIR__ . '/../footer.php';

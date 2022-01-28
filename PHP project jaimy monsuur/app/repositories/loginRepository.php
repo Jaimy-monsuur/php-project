@@ -13,10 +13,11 @@ class LoginRepository extends Repository {
             $user = $stmt->fetch();
 
             if ($stmt->rowCount() > 0) {
-                if($email == $user->username && $pass == $user->password)
+                $verify = password_verify($pass, $user->password);
+                if($email == $user->username && $verify)
                 {
                     $_SESSION['Logged_in'] = true;
-                    $_SESSION['user'] = $user;
+                    $_SESSION['user'] = $user->username;
                     $_POST = array();
                     $login = new LoginController();
                     $login->index();

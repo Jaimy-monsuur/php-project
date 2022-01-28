@@ -32,23 +32,26 @@
                 </ul>
                 <?php
                 ?>
-                <ul class="navbar-nav float-right">
-                    <li class="nav-item m-1">
-                        <a class="btn btn-outline-primary me-2 mr-1" href="/Login">Login</a>
-                    </li>
+                <ul class="navbar-nav mb-2 mb-md-0 float-right">
+                    <?php if($_SESSION['Logged_in'] == false){
+                        echo '<li class="nav-item ">';
+                        echo '<a class="btn btn-outline-primary m-2 " href="/Login">Login</a>';
+                        echo '</li>';
+                    }
+                    ?>
                     <?php  if($_SESSION['Logged_in'] == true){
-                    echo '<li class="nav-item m-1">';
-                    echo '<a class="btn btn-primary me-2 mr-1" href="/Login/Logout">Log out</a>';
+                    echo '<li class="nav-item ">';
+                    echo '<a class="btn btn-primary m-2 " href="/Login/Logout">Log out</a>';
                     echo '</li>';
                 }
                 else {
-                    echo '<li class="nav-item m-1">';
-                    echo '<a class="btn btn-primary me-2" href="/Sign_up">Sign-up</a>';
+                    echo '<li class="nav-item ">';
+                    echo '<a class="btn btn-primary m-2" href="/Sign_up">Sign-up</a>';
                     echo '</li>';
                 }
                 ?>
-                    <li class="nav-item m-1">
-                        <a class="btn btn-primary mr-1" href="/cart">
+                    <li class="nav-item ">
+                        <a class="btn btn-primary m-2" href="/cart">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-cart" viewBox="0 0 16 16">
                                 <path
@@ -57,6 +60,16 @@
                             Shoping cart
                         </a>
                     </li>
+                    <?php if($_SESSION['Logged_in'] == true){
+                    echo '<li class="nav-item ">';
+                    echo '<a class="nav-link " href="/Profile" id="ProfileLink" role="button">';
+                    echo $_SESSION['user'] . " ";
+                    echo '<img src="http://localhost:81//Resources/img/profile.jpg" width="40" height="40" class="rounded-circle">';
+                    echo '</a>';
+                    echo '</li>';
+                    } 
+                    ?>
+ 
                 </ul>
             </div>
         </div>

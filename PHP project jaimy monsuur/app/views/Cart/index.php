@@ -64,7 +64,7 @@ include __DIR__ . '/../header.php';
               </li>
             </ul>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block">
+            <button onClick="checkOut(<?php echo $_SESSION['Logged_in']?>)" type="button" class="btn btn-primary btn-lg btn-block">
               Go to checkout
             </button>
           </div>

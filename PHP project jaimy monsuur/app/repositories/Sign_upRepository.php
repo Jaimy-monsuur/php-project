@@ -19,8 +19,9 @@ class Sign_upRepository extends Repository {
                 require __DIR__ . '/../views/Sign-up/index.php';
             }
             else {
+                $hash = password_hash($pass, PASSWORD_DEFAULT);
                 $stmt = $this->connection->prepare(" INSERT INTO Users (username , password)
-                VALUES ('$email', '$pass');");
+                VALUES ('$email', '$hash');");
                 if ($stmt->execute())
                 {
                     header("LOCATION: http://localhost:81/Login");

@@ -10,6 +10,11 @@ function updatePage(){
         displayTotalItems();
         displayTotalPrice();
     }
+    if(document.getElementById("orders"))
+    {
+      //for the profile page
+      fetchOrders();
+    }
 }
 
 class Item {
@@ -18,6 +23,68 @@ class Item {
         this.price = price;
         this.count = count;
     }
+}
+class Order {
+  constructor(id, account, cart, date){
+      this.id = id;
+      this.account = account;
+      this.cart = Object.assign(new Item, cart)
+      this.date = date;
+
+   }
+}
+
+function checkOut(bool){
+  if(bool == true){
+    try{
+      (async () => {
+        await fetch('/api/Order', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(cart)
+        });    
+      })();
+      clearCart();
+      window.location.href = "/Profile";
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+  else{
+    window.location.href = "/login";
+  }
+}
+async function fetchOrders() {
+  try{
+    let response = await fetch('/api/Order', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    });    
+  
+    if (response.status === 200) {
+        let result = await response.text();
+        result = result.replaceAll("\\'", "'");
+        let data = JSON.parse(result);
+        orders = [];
+        for (var element of data){
+          orders.push(Object.assign(new Order, element));
+        }
+
+        displayOrders(orders);
+        displayTotalOrders(orders);
+    }
+  }
+  catch(e){
+    console.log(e);
+  }
+
 }
 
 // Save cart
@@ -38,7 +105,6 @@ function addItemToCart(name, price, count){
   for(var item in cart) {
     if(cart[item].name === name) {
       cart[item].count ++;
-      console.log("count ++");
       saveCart();
       bool = true;
       break;
@@ -47,7 +113,6 @@ function addItemToCart(name, price, count){
   if(!bool)
   {
     var item = new Item(name, price, count);
-    console.log("added new");
     cart.push(item);
     saveCart();
   }
@@ -96,7 +161,7 @@ function removeAllItemFromCart(name) {
 function clearCart() {
   cart = [];
   saveCart();
-  displayCart();
+  updatePage();
 }
 
 function displayCart() {
@@ -110,7 +175,7 @@ function displayCart() {
             '            <div class="row show-cart border-bottom py-4">'+
             '              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">'+
             '                <!-- Image -->'+
-            '                <div class="bg-image " data-mdb-ripple-color="light">'+
+            '                <div >'+
             '                  <img src="http://localhost:81//Resources/img/' + element.name + '.jpg"'+
             '                    class="w-100" />'+
             '                  <a href="#!">'+
@@ -123,8 +188,6 @@ function displayCart() {
             '              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">'+
             '                <!-- Data -->'+
             '                <p><strong>'+ element.name +'</strong></p>'+
-            '                <p>Color: red</p>'+
-            '                <p>Size: M</p>'+
             ''+
             '                <!-- Data -->'+
             '              </div>'+
@@ -180,4 +243,55 @@ function displayTotalPrice()
     document.getElementById("total_price").innerHTML = output;
 }
 
+//for the profile page
 
+function displayOrders(orders) {
+  var output = "";
+  if(orders.length != 0){
+    for (const i in orders){
+      var items = [];
+      var x = JSON.parse(orders[i].cart);
+      output += '<div class="m-2" id="accordion row' + i + '">'+
+        '                            <div class="card">'+
+        '                                <div class="card-header">'+
+        '                                    <a class="btn" data-bs-toggle="collapse" href="#collapse' + i + '">'+
+        '                                      Date:  '+ orders[i].date +' '+
+        '                                    </a>'+
+        '                                </div>';
+      for (const j in x) {;
+        items.push(x[j]);
+          
+        output += '                       <div id="collapse' + i + '" class=" border-bottom collapse hide" data-bs-parent="#accordion' + i + '">'+
+        '                                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0 m-2">'+
+        '                                       <img  src="http://localhost:81//Resources/img/' + items[j].name + '.jpg"'+
+        '                                         class="w-100" />'+
+        '                                       <a href="">'+
+        '                                          <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>'+
+        '                                       </a>'+            
+        '                                    </div>'+
+        '                                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0 m-2">'+
+        '                                        <p><strong> Item: '+ items[j].name +'</strong></p>'+
+        '                                        <p> Price: '+ items[j].price +'</p>'+
+        '                                        <p> Amount: '+ items[j].count +'</p>'+
+        '                                    </div>'+
+        '                                </div>';	
+      }
+      output +=   '                            </div>'+
+                  '                          </div>'+
+                  '                        </div>';
+    }
+    document.getElementById("orders").innerHTML = output;
+  }
+}
+
+function displayTotalOrders(Orders)
+{
+    var total = 0;
+    if(Orders.length != 0){
+      Orders.forEach(element => {
+            total += 1;
+        });
+    }
+    var output = '<p >History - '+ total + ' orders</p>'
+    document.getElementById("Number_orders").innerHTML = output;
+}
