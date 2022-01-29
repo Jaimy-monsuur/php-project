@@ -55,7 +55,7 @@ function checkOut(bool){
     }
   }
   else{
-    window.location.href = "/login";
+    window.location.href = "/Login";
   }
 }
 async function fetchOrders() {
