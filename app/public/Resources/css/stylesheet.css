@@ -2,7 +2,7 @@ html {
     position: relative;
     min-height: 100%;
   }
-body {background-image: url('http://localhost:81//Resources/img/back.png');
+body {background-image: url('https://the-cheese-shop.herokuapp.com//Resources/img/back.png');
       background-repeat: repeat;
       margin-bottom: 60px; /* footer height */
       min-height: 100%;
@@ -15,7 +15,7 @@ body {background-image: url('http://localhost:81//Resources/img/back.png');
     position: absolute;
 }
 .bgimg {
-    background-image: url('http://localhost:81//Resources/img/BigCheeseHomepageIMG.jpg');
+    background-image: url('https://the-cheese-shop.herokuapp.com//Resources/img/BigCheeseHomepageIMG.jpg');
 }
 .navbar-collapse 
 {

@@ -27,16 +27,16 @@ include __DIR__ . '/../header.php';
           <div class="card-body">
             <p><strong>We accept</strong></p>
             <img class="me-2" width="100px"
-              src="http://localhost:81//Resources/img/Visa.png"
+              src="https://the-cheese-shop.herokuapp.com//Resources/img/Visa.png"
               alt="Visa" />
             <img class="me-2" width="100px"
-              src="http://localhost:81//Resources/img/American-Express.png"
+              src="https://the-cheese-shop.herokuapp.com//Resources/img/American-Express.png"
               alt="American Express" />
             <img class="me-2" width="100px"
-              src="http://localhost:81//Resources/img/MasterCard.png"
+              src="https://the-cheese-shop.herokuapp.com//Resources/img/MasterCard.png"
               alt="Mastercard" />
             <img class="me-2" width="100px"
-              src="http://localhost:81//Resources/img/paypal.jpg"
+              src="https://the-cheese-shop.herokuapp.com//Resources/img/paypal.jpg"
               alt="PayPal" />
           </div>
         </div>

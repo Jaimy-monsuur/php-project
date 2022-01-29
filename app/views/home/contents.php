@@ -23,7 +23,7 @@
                     $itemdescription = $cheese->description;
                     echo '<div class="col-lg-3 d-flex align-items-stretch mb-4">';
                         echo '<div class="card ">';
-                            echo '<img class="card-img-top img-responsive" src="http://localhost:81//Resources/img/' . $itemname . '.jpg" alt="..." />';
+                            echo '<img class="card-img-top img-responsive" src="https://the-cheese-shop.herokuapp.com//Resources/img/' . $itemname . '.jpg" alt="..." />';
                             echo '<div class="card-body p-4">';
                                 echo '<div class="text-center">';
                                     echo '<h5 class="fw-bolder">'. $itemname . '</h5>';

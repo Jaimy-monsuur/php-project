@@ -176,7 +176,7 @@ function displayCart() {
             '              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">'+
             '                <!-- Image -->'+
             '                <div >'+
-            '                  <img src="http://localhost:81//Resources/img/' + element.name + '.jpg"'+
+            '                  <img src="https://the-cheese-shop.herokuapp.com//Resources/img/' + element.name + '.jpg"'+
             '                    class="w-100" />'+
             '                  <a href="#!">'+
             '                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>'+
@@ -263,7 +263,7 @@ function displayOrders(orders) {
           
         output += '                       <div id="collapse' + i + '" class=" border-bottom collapse hide" data-bs-parent="#accordion' + i + '">'+
         '                                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0 m-2">'+
-        '                                       <img  src="http://localhost:81//Resources/img/' + items[j].name + '.jpg"'+
+        '                                       <img  src="https://the-cheese-shop.herokuapp.com//Resources/img/' + items[j].name + '.jpg"'+
         '                                         class="w-100" />'+
         '                                       <a href="">'+
         '                                          <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>'+
