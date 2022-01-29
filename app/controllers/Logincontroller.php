@@ -8,7 +8,7 @@ class LoginController
         $_SESSION["error"] = "";
         if($_SESSION['Logged_in'] == true)
         {
-            header("LOCATION: http://localhost:81/");
+            header("LOCATION: https://the-cheese-shop.herokuapp.com/");
             require __DIR__ . '/../views/home/index.php';
         }
         elseif($_POST == null){
@@ -46,7 +46,7 @@ class LoginController
     }
     public function Logout()
     {
-        header("LOCATION: http://localhost:81/");
+        header("LOCATION: https://the-cheese-shop.herokuapp.com/");
         $_POST = array();
         $_SESSION['Logged_in'] = false;
         require __DIR__ . '/../views/home/index.php';

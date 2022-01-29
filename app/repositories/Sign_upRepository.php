@@ -24,7 +24,7 @@ class Sign_upRepository extends Repository {
                 VALUES ('$email', '$hash');");
                 if ($stmt->execute())
                 {
-                    header("LOCATION: http://localhost:81/Login");
+                    header("LOCATION: https://the-cheese-shop.herokuapp.com/Login");
                     $_POST = array();   
                     $login = new LoginController();
                     $login->index();
