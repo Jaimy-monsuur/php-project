@@ -41,7 +41,7 @@ class LoginController
         }
         else {
             $_POST = array();
-            require __DIR__ . '/../views/login/index.php';
+            require __DIR__ . '/../views/Login/index.php';
         }
     }
     public function Logout()

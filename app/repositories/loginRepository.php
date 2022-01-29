@@ -38,6 +38,6 @@ class LoginRepository extends Repository {
     function Wrong()
     {
         $_SESSION["error"] = "Wrong credentials";
-        require __DIR__ . '/../views/login/index.php';
+        require __DIR__ . '/../views/Login/index.php';
     }
 }
