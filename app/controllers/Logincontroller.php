@@ -12,7 +12,7 @@ class LoginController
             require __DIR__ . '/../views/home/index.php';
         }
         elseif($_POST == null){
-            require __DIR__ . '/../views/login/index.php';
+            require __DIR__ . '/../views/Login/index.php';
         }
         else {
             $this->Login();
