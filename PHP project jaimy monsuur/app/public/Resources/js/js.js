@@ -35,7 +35,7 @@ class Order {
 }
 
 function checkOut(bool){
-  if(bool == true){
+  if(bool == true && cart.length > 0){
     try{
       (async () => {
         await fetch('/api/Order', {
