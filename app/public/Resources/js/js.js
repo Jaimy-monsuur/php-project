@@ -28,7 +28,7 @@ class Order {
   constructor(id, account, cart, date){
       this.id = id;
       this.account = account;
-      var temp = cart.replace(/\\/g, '');
+      var temp = JSON.stringify(cart);
       this.cart = Object.assign(new Item, temp)
       this.date = date;
 
