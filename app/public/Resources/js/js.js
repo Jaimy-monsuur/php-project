@@ -28,6 +28,7 @@ class Order {
   constructor(id, account, cart, date){
       this.id = id;
       this.account = account;
+      cart = cart.replaceAll("\\'", "'");
       this.cart = Object.assign(new Item, cart)
       this.date = date;
 
