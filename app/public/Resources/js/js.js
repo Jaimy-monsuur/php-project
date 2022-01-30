@@ -28,9 +28,7 @@ class Order {
   constructor(id, account, cart, date){
       this.id = id;
       this.account = account;
-      var replaced = JSON.stringify(JSON.parse(cart, (key, value) =>
-      typeof value === 'string' ?  value.replace(/[\t\r\n]/g, '') : value));
-      this.cart = Object.assign(new Item, replaced);
+      this.cart = Object.assign(new Item, cart)
       this.date = date;
 
    }
@@ -250,7 +248,6 @@ function displayOrders(orders) {
   var output = "";
   if(orders.length != 0){
     for (const i in orders){
-      var items = [];
       var items = [];
       var x = JSON.parse(orders[i].cart);
       output += '<div class="m-2" id="accordion row' + i + '">'+
