@@ -70,7 +70,6 @@ async function fetchOrders() {
   
     if (response.status === 200) {
         let result = await response.text();
-        result = result.replace(/\\/g, '');
         let data = JSON.parse(result);
         orders = [];
         for (var element of data){
