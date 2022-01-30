@@ -28,7 +28,8 @@ class Order {
   constructor(id, account, cart, date){
       this.id = id;
       this.account = account;
-      this.cart = Object.assign(new Item, cart)
+      var temp = cart.replace(/\\/g, '');
+      this.cart = Object.assign(new Item, temp)
       this.date = date;
 
    }
