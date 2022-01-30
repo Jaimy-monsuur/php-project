@@ -250,8 +250,7 @@ function displayOrders(orders) {
     for (const i in orders){
       var items = [];
       var items = [];
-      var JSONstring = JSON.stringify(orders[i].cart);
-      var x = Object.assign(new Item, JSONstring);
+      var x = JSON.parse(orders[i].cart, (key, value) => typeof value === 'string' ?  value.replace(/[\t\r\n]/g, '') : value);
       output += '<div class="m-2" id="accordion row' + i + '">'+
         '                            <div class="card">'+
         '                                <div class="card-header">'+
