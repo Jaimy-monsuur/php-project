@@ -250,7 +250,7 @@ function displayOrders(orders) {
     for (const i in orders){
       var items = [];
       var jsonString = JSON.stringify(orders[i].cart, null, 8);
-      var x = JSON.parse(jsonString);
+      var x = Object.assign(new Item, jsonString);
       output += '<div class="m-2" id="accordion row' + i + '">'+
         '                            <div class="card">'+
         '                                <div class="card-header">'+
