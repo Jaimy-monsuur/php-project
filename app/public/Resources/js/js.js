@@ -28,7 +28,6 @@ class Order {
   constructor(id, account, cart, date){
       this.id = id;
       this.account = account;
-      var temp = JsonConvert.DeserializeObject<string>(unescapedJsonString);
       this.cart = Object.assign(new Item, temp)
       this.date = date;
 
@@ -251,7 +250,8 @@ function displayOrders(orders) {
   if(orders.length != 0){
     for (const i in orders){
       var items = [];
-      var x = JSON.parse(orders[i].cart);
+      var jsonString = JSON.stringify(orders[i].cart, null, 8);
+      var x = JSON.parse();
       output += '<div class="m-2" id="accordion row' + i + '">'+
         '                            <div class="card">'+
         '                                <div class="card-header">'+
