@@ -28,7 +28,6 @@ class Order {
   constructor(id, account, cart, date){
       this.id = id;
       this.account = account;
-      console.log(cart);
       this.cart = Object.assign(new Item, cart)
       this.date = date;
 
@@ -71,7 +70,7 @@ async function fetchOrders() {
   
     if (response.status === 200) {
         let result = await response.text();
-        result = result.replaceAll("\\'", "'");
+        result = result.replace(/\\/g, '');
         let data = JSON.parse(result);
         orders = [];
         for (var element of data){
