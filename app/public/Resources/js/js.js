@@ -28,7 +28,7 @@ class Order {
   constructor(id, account, cart, date){
       this.id = id;
       this.account = account;
-      this.cart = Object.assign(new Item, temp)
+      this.cart = Object.assign(new Item, cart)
       this.date = date;
 
    }
