@@ -252,6 +252,7 @@ function displayOrders(orders) {
       var items = [];
       var JSONstring = JSON.stringify(orders[i].cart);
       var x = JSON.parse(JSONstring);
+      x = Object.assign(new Item, x);
       output += '<div class="m-2" id="accordion row' + i + '">'+
         '                            <div class="card">'+
         '                                <div class="card-header">'+
