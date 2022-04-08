@@ -7,7 +7,8 @@ class Sign_upRepository extends Repository {
 
     function Register($email, $pass) {
         try {
-            $stmt = $this->connection->prepare("SELECT * FROM Users Where username = '$email'");
+            $stmt = $this->connection->prepare("SELECT * FROM Users Where username = :email");
+            $stmt->bindValue(':email', $email);
             $stmt->execute();
 
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
@@ -21,7 +22,9 @@ class Sign_upRepository extends Repository {
             else {
                 $hash = password_hash($pass, PASSWORD_DEFAULT);
                 $stmt = $this->connection->prepare(" INSERT INTO Users (username , password)
-                VALUES ('$email', '$hash');");
+                VALUES (:email, :pass);");
+                $stmt->bindValue(':email', $email);
+                $stmt->bindValue(':pass', $hash);
                 if ($stmt->execute())
                 {
                     header("LOCATION: https://the-cheese-shop.herokuapp.com/Login");

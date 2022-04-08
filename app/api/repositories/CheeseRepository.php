@@ -12,9 +12,7 @@ class CheeseRepository extends Repository
             $stmt->execute();
 
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'Cheese');
-            $cheeselist = $stmt->fetchAll();
-
-            return $cheeselist;
+            return $stmt->fetchAll();
         } catch (PDOException $e) {
             echo $e;
         }

@@ -15,6 +15,7 @@ class Sign_upController
     }
     public function Register()
     {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $uppercase = preg_match('@[A-Z]@', $_POST["password"]);
         $lowercase = preg_match('@[a-z]@', $_POST["password"]);
         $number    = preg_match('@[0-9]@', $_POST["password"]);

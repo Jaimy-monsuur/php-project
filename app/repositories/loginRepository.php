@@ -6,7 +6,8 @@ class LoginRepository extends Repository {
 
     function Login($email, $pass) {
         try {
-            $stmt = $this->connection->prepare("SELECT * FROM Users Where username = '$email'");
+            $stmt = $this->connection->prepare("SELECT * FROM Users Where username = :email");
+            $stmt->bindValue(':email', $email);
             $stmt->execute();
 
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
